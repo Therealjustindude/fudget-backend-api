@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_07_184816) do
+ActiveRecord::Schema.define(version: 2021_09_08_170704) do
+
+  create_table "expenses", force: :cascade do |t|
+    t.string "name"
+    t.date "date_due"
+    t.date "date_paid"
+    t.boolean "auto_withdrawl"
+    t.string "bank_account_name"
+    t.float "amount_owed"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_expenses_on_user_id"
+  end
 
   create_table "jwt_denylist", force: :cascade do |t|
     t.string "jti", null: false
@@ -34,4 +47,5 @@ ActiveRecord::Schema.define(version: 2021_09_07_184816) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "expenses", "users"
 end

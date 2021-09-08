@@ -87,9 +87,12 @@ GEM
     dry-core (0.7.1)
       concurrent-ruby (~> 1.0)
     erubi (1.10.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
+    graphql (1.12.16)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
     jwt (2.2.3)
@@ -183,6 +186,8 @@ DEPENDENCIES
   byebug
   devise
   devise-jwt
+  faker
+  graphql
   listen (~> 3.3)
   puma (~> 5.0)
   rack-cors
